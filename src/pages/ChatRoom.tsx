@@ -4,10 +4,11 @@ import { v4 as uuidv4 } from 'uuid';
 import { collection, addDoc } from "firebase/firestore";
 import { doc, setDoc } from "firebase/firestore";
 import { useDispatch } from 'react-redux';
-import { setSenderId } from '../redux/actions';
+import { setSenderId } from '../services/redux/actions';
 import { useNavigate } from 'react-router-dom';
-import styles from './styles/styles.module.css';
+import styles from '../styles/styles.module.css';
 import { BiSolidLockAlt } from 'react-icons/bi';
+import Notification from '../components/Notification';
 
 const ChatRoom = () => {
     const [roomName, setRoomName] = useState('');
@@ -50,6 +51,7 @@ const ChatRoom = () => {
                     className={styles.homeInput}
                 />
                 <button onClick={handleJoinRoom} className={styles.homeButton}>Join Room</button>
+                
             </div>
         </div>
     );

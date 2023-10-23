@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { getFirestore, collection, addDoc, query, orderBy, onSnapshot, DocumentData, where, getDocs } from 'firebase/firestore';
 import { useSelector } from 'react-redux';
 import { FieldValue, Timestamp } from 'firebase/firestore'; // Import FieldValue
-import styles from './styles/styles.module.css';
+import styles from '../styles/styles.module.css';
 import whatsappBackground from '../assets/wtsapp.png'
 
 type Message = {
@@ -81,7 +81,7 @@ const Messages = () => {
         {messages.map((message, index) => (
           <div key={index} style={{ display: `flex`, justifyContent: roomId === message.sender ? `flex-end` : `flex-start` }} className={styles.message} ref={ref}>
             <div>{message.text}</div>
-            <div>{message.name}</div>
+            <div className={styles.messageName}>-{message.name}</div>
             <div>{}</div>
           </div>
         ))}

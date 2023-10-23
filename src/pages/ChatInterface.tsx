@@ -1,7 +1,7 @@
 import React from 'react'
-import UsersList from './UsersList'
-import Messages from './Messages';
-import styles from './styles/styles.module.css';
+import UsersList from '../components/UsersList'
+import Messages from '../components/Messages';
+import styles from '../styles/styles.module.css';
 
 export default function ChatInterface() {
   return (

@@ -2,7 +2,7 @@ import { getFirestore, collection, getDocs } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
 import { BsDot } from 'react-icons/bs';
 import { useSelector } from 'react-redux';
-import styles from './styles/styles.module.css';
+import styles from '../styles/styles.module.css';
 
 const UsersList = () => {
     const [users, setUsers] = useState<any>([]);

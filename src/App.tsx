@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-import ChatRoom from './components/ChatRoom';
+import ChatRoom from './pages/ChatRoom';
 import UsersList from './components/UsersList';
 import Routtes from './routes/Routtes';
 
