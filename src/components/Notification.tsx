@@ -20,7 +20,6 @@ function Notification() {
             try {
                 const payload: PayloadType = await onMessageListener() as PayloadType;
                 if (payload && payload.notification) {
-                    console.log(payload.notification,"hi");
                     
                     setNotification({
                         title: payload.notification.title || '',
@@ -39,12 +38,11 @@ function Notification() {
 
         initializeNotifications();
     }, []);
-    console.log(notification, "noitify");
+    console.log(notification, "notify");
 
     return (
         <div>
-            <button onClick={notify}>Make me a toast</button>
-            <Toaster />
+           <Toaster/>
         </div>
     );
 }

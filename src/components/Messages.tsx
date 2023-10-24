@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { getFirestore, collection, addDoc, query, orderBy, onSnapshot, DocumentData, where, getDocs } from 'firebase/firestore';
 import { useSelector } from 'react-redux';
-import { FieldValue, Timestamp } from 'firebase/firestore'; // Import FieldValue
+import { Timestamp } from 'firebase/firestore'; // Import FieldValue
 import styles from '../styles/styles.module.css';
 import whatsappBackground from '../assets/wtsapp.png'
 
@@ -9,7 +9,7 @@ type Message = {
   text: string;
   sender: string;
   name: string;
-  timestamp:Timestamp;
+  timestamp: Timestamp;
 
   // other properties
 };
@@ -20,12 +20,11 @@ const Messages = () => {
   const [name, setName] = useState("");
   const roomId = useSelector((state: any) => state.senderId);
   const ref = useRef<HTMLDivElement | null>(null);
-  const [messageIndex, setMessageIndex] = useState<number>(0);
   useEffect(() => {
     if (roomId) {
       fetchUsernameFromRoomId(roomId).then((res) => {
-        console.log(res,"name");
-        
+        console.log(res, "name");
+
         setName(res);
       });
 
@@ -41,7 +40,7 @@ const Messages = () => {
             text: data.text,
             sender: data.sender,
             name: data.name,
-            timestamp:data.timestamp,
+            timestamp: data.timestamp,
             // Include other properties if needed
           };
           messageList.push(message);
@@ -65,7 +64,7 @@ const Messages = () => {
         text: newMessage,
         sender: roomId, // Include the sender (you can also use a unique user ID)
         timestamp: Timestamp.now(),
-        name:name,
+        name: name,
       });
 
       setNewMessage("");
@@ -82,7 +81,7 @@ const Messages = () => {
           <div key={index} style={{ display: `flex`, justifyContent: roomId === message.sender ? `flex-end` : `flex-start` }} className={styles.message} ref={ref}>
             <div>{message.text}</div>
             <div className={styles.messageName}>-{message.name}</div>
-            <div>{}</div>
+            <div>{ }</div>
           </div>
         ))}
       </div>

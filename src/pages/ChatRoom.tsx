@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { db } from '../firebase';
 import { v4 as uuidv4 } from 'uuid';
-import { collection, addDoc } from "firebase/firestore";
 import { doc, setDoc } from "firebase/firestore";
 import { useDispatch } from 'react-redux';
 import { setSenderId } from '../services/redux/actions';
@@ -51,7 +50,7 @@ const ChatRoom = () => {
                     className={styles.homeInput}
                 />
                 <button onClick={handleJoinRoom} className={styles.homeButton}>Join Room</button>
-                
+                <Notification/>
             </div>
         </div>
     );
