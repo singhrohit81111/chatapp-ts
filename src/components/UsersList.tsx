@@ -9,8 +9,6 @@ const UsersList = () => {
     const [users, setUsers] = useState<any>([]);
     const userID = useSelector((state: any) => state.senderId);
     const [showComponent, setShowComponent] = useState(false);
-    const [invite,setInvite]=useState(true);
-    const[invited,setInvited]=useState(false);
     const handleButtonClick = () => {
       setShowComponent(true);
     };
@@ -43,7 +41,6 @@ const UsersList = () => {
         <div className={styles.usersList}>
             <h1 className={styles.usersListHeading}>Users List</h1>
             <button onClick={handleButtonClick}>invite</button>
-            {invited && <button disabled>Invited</button>}
             <ul style={{ height: `70vh`, overflow: `scroll` }}>
                 {users.map((user: any) => (
                     <li key={user.id} style={{ listStyleType: `none`, display: `flex`, justifyContent: `space-between`, marginBottom: `13px` }}>

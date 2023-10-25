@@ -1,7 +1,7 @@
-import { arrayUnion, doc, getDocs, getFirestore, setDoc } from "firebase/firestore";
+import {  doc, getFirestore, setDoc } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
 import { getToken, getMessaging, onMessage, } from "firebase/messaging";
-import { useDispatch } from "react-redux";
+
 
 
 const firebaseConfig = {

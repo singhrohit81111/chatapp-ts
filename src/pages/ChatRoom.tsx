@@ -7,7 +7,6 @@ import { setSenderId } from '../services/redux/actions';
 import { useNavigate } from 'react-router-dom';
 import styles from '../styles/styles.module.css';
 import { BiSolidLockAlt } from 'react-icons/bi';
-import Notification from '../components/Notification';
 
 
 const ChatRoom = () => {

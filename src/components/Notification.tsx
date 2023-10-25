@@ -1,19 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import { Toaster, toast } from 'react-hot-toast';
 import { requestPermission, onMessageListener } from '../firebase';
 import { collection, getDocs, getFirestore } from 'firebase/firestore';
 import axios from 'axios';
 
-interface PayloadType {
-    notification?: {
-        title?: string;
-        body?: string;
-    };
-}
+// interface PayloadType {
+//     notification?: {
+//         title?: string;
+//         body?: string;
+//     };
+// }
 
 function Notification() {
     const [notification, setNotification] = useState({ title: 'Notifcation', body: 'You are invited to group' });
-    const notify = () => toast("HELLO");
 
     useEffect(() => {
         requestPermission();
