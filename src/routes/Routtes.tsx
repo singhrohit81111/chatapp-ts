@@ -1,8 +1,5 @@
-import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import ChatRoom from '../pages/ChatRoom'
-import UsersList from '../components/UsersList'
-import Messages from '../components/Messages'
 import ChatInterface from '../pages/ChatInterface'
 
 export default function Routtes() {
