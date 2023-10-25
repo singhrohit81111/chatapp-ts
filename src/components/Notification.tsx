@@ -1,4 +1,4 @@
-import  { useState } from 'react';
+import { useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { requestPermission, onMessageListener } from '../firebase';
 import { collection, getDocs, getFirestore } from 'firebase/firestore';
@@ -17,7 +17,7 @@ function Notification() {
     const initializeNotifications = async () => {
         requestPermission();
         const firestore = getFirestore();
-        const usersCollection = collection(firestore, "users",);
+        const usersCollection = collection(firestore, "users");
         const usersSnapshot = await getDocs(usersCollection);
         console.log(usersSnapshot, "users");
         const usersData = usersSnapshot.docs.map((doc) => ({
@@ -57,7 +57,7 @@ function Notification() {
                             }
                         );
                         console.log(
-                            `${payload?.notification?.title}: ${payload?.notification?.body}`,"hee"
+                            `${payload?.notification?.title}: ${payload?.notification?.body}`, "hee"
                         );
                     });
                 }
