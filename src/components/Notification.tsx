@@ -12,7 +12,7 @@ interface PayloadType {
 }
 
 function Notification() {
-    const [notification, setNotification] = useState({ title: '', body: '' });
+    const [notification, setNotification] = useState({ title: 'Notifcation', body: 'You are invited to group' });
     const notify = () => toast("HELLO");
 
     useEffect(() => {
@@ -27,29 +27,48 @@ function Notification() {
             const usersData = usersSnapshot.docs.map((doc) => ({
                 fcm: doc.get("fcmToken"),
             }));
-            const fcm = usersData.map(e => e.fcm)
-            console.log(usersData, fcm, "fcm");
-            const notification = {
-                title: "Notifcation",
-                body: "You are invited to Group",
-            };
+            const registrationTokens = usersData.map(e => e.fcm)
+            console.log(usersData, registrationTokens, "fcm");
+            // const notification = {
+            //     title: "Notifcation",
+            //     body: "You are invited to Group",
+            // };
             const data = { title: "Notifcation", body: "You are invited to Group" };
 
 
 
-            const payload: PayloadType = await onMessageListener() as PayloadType;
-            if (payload && payload.notification) {
-
-                setNotification({
-                    title: payload.notification.title || '',
-                    body: payload.notification.body || '',
+            axios
+                .post('http://localhost:3000/send-notification', {
+                    registrationTokens,
+                    notification,
+                    data,
+                    tokenToExclude: "",
+                })
+                .then((response) => {
+                    console.log('Push notification sent:', response.data);
+                    if (response.status === 200) {
+                        onMessageListener().then((payload: any) => {
+                            console.log(payload, 'onMessageListenerpayload');
+                            setNotification({
+                                title: payload?.notification?.title,
+                                body: payload?.notification?.body,
+                            });
+                            toast.success(
+                                `${payload?.notification?.title}: ${payload?.notification?.body}`,
+                                {
+                                    duration: 6000,
+                                    position: 'top-right',
+                                }
+                            );
+                            console.log(
+                                `${payload?.notification?.title}: ${payload?.notification?.body}`
+                            );
+                        });
+                    }
+                })
+                .catch((error) => {
+                    console.error('Error sending push notification:', error);
                 });
-
-                toast.success(`${payload.notification.title}: ${payload.notification.body}`, {
-                    duration: 60000,
-                    position: 'top-right',
-                });
-            }
 
         };
 

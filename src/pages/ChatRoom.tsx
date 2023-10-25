@@ -51,7 +51,7 @@ const ChatRoom = () => {
                     className={styles.homeInput}
                 />
                 <button onClick={handleJoinRoom} className={styles.homeButton}>Join Room</button>
-                <button >invite</button>
+               
                 <Notification />
             </div>
         </div>
