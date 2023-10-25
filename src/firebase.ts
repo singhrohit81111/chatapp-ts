@@ -34,7 +34,7 @@ export const requestPermission = () => {
             
             // Store the current token in Firestore
           
-            const userDocRef = doc(db, "users", "user-id-here"); // Replace "user-id-here" with the actual user ID
+            const userDocRef = doc(db, "users", currentToken); // Replace "user-id-here" with the actual user ID
             //const currentTokens = userDocSnapshot.data().fcmToken || [];
 
             //const updatedTokens = arrayUnion(currentTokens, [currentToken]);
