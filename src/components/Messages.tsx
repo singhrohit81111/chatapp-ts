@@ -72,7 +72,7 @@ const Messages = () => {
       console.error("Error sending message:", error);
     }
   };
-  console.log(messages);
+  console.log(messages,roomId,"room");
 
   return (
     <div className={styles.messages} style={{ backgroundImage: `url(${whatsappBackground})` }}>

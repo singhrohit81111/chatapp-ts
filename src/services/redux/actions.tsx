@@ -4,3 +4,11 @@ export const setSenderId = (senderId:any) => {
       senderId,
     };
   }
+
+
+  export const setCurrentUserFcmToken = (fcmToken:any) => {
+    return {
+      type: "SET_CURRENT_USER_FCM_TOKEN",
+      fcmToken,
+    };
+  }

@@ -9,6 +9,7 @@ import styles from '../styles/styles.module.css';
 import { BiSolidLockAlt } from 'react-icons/bi';
 import Notification from '../components/Notification';
 
+
 const ChatRoom = () => {
     const [roomName, setRoomName] = useState('');
     const dispatch = useDispatch();
@@ -36,12 +37,12 @@ const ChatRoom = () => {
             console.error('Error creating room:', error);
         }
     };
-
+    
     return (
         <div className={styles.home}>
             <div className={styles.container}>
                 <h1>Join a Chat Room</h1>
-                <div><BiSolidLockAlt className={styles.icon}/></div>
+                <div><BiSolidLockAlt className={styles.icon} /></div>
                 <input
                     type="text"
                     placeholder="Enter Room Name"
@@ -50,7 +51,8 @@ const ChatRoom = () => {
                     className={styles.homeInput}
                 />
                 <button onClick={handleJoinRoom} className={styles.homeButton}>Join Room</button>
-                <Notification/>
+                <button >invite</button>
+                <Notification />
             </div>
         </div>
     );

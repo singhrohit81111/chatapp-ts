@@ -29,11 +29,12 @@ const UsersList = () => {
         fetchUsers();
     }, []);
 
-
+    
     return (
         <div className={styles.usersList}>
             <h1 className={styles.usersListHeading}>Users List</h1>
-            <ul style={{height:`70vh`,overflow:`scroll`}}>
+            <button >invite</button>
+            <ul style={{ height: `70vh`, overflow: `scroll` }}>
                 {users.map((user: any) => (
                     <li key={user.id} style={{ listStyleType: `none`, display: `flex`, justifyContent: `space-between`, marginBottom: `13px` }}>
                         <div>
