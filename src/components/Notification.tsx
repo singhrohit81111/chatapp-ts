@@ -38,7 +38,7 @@ function Notification() {
 
 
             axios
-                .post('http://localhost:3000/send-notification', {
+                .post('https://chatapp-7tuy.onrender.com/send-notification', {
                     registrationTokens,
                     notification,
                     data,

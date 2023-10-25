@@ -57,8 +57,6 @@ const UsersList = () => {
                             </span>
                             online
                         </div>
-
-                        {/* Add other user data fields as needed */}
                     </li>
                 ))}
             </ul>

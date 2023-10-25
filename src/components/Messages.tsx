@@ -10,8 +10,6 @@ type Message = {
   sender: string;
   name: string;
   timestamp: Timestamp;
-
-  // other properties
 };
 
 const Messages = () => {
