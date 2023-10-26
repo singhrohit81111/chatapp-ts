@@ -31,8 +31,6 @@ function Notification() {
         // };
         const data = { title: "Notifcation", body: "You are invited to Group" };
 
-
-
         axios
             .post('https://chatapp-7tuy.onrender.com/send-notification', {
                 registrationTokens,

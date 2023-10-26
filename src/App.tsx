@@ -1,13 +1,13 @@
 import { Toaster } from 'react-hot-toast';
 import './App.css';
-import Routtes from './routes/Routtes';
+import Routes from './routes/Index';
 
 
 function App() {
   return (
     <div className="App">
-      <Toaster/>
-      <Routtes/>
+      <Toaster />
+      <Routes />
     </div>
   );
 }
